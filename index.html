@@ -25,25 +25,24 @@
     <div class="login-container">
       <div class="logo-icon">
         <img src="icons/logo.png" alt="InstalaSaldo Logo" width="160"
-          style="display: block; margin: 0 auto; border-radius: 12px;">
+          style="display: block; margin: 0 auto; border-radius: 12px; margin-bottom: 24px;">
       </div>
       <h1 class="login-title" style="display: none;">InstalaSaldo</h1>
-      <p class="login-subtitle">Controle de sinal e restante das suas instalações</p>
+      <p class="login-subtitle" style="margin-bottom: 32px;">Controle de sinal e restante das suas instalações</p>
+      <form id="login-form" class="login-form">
+        <div class="input-group">
+          <label for="input-nome">Seu nome</label>
+          <input type="text" id="input-nome" placeholder="Digite seu nome" autocomplete="name" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="btn-entrar">
+          Entrar
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </form>
     </div>
-    <form id="login-form" class="login-form">
-      <div class="input-group">
-        <label for="input-nome">Seu nome</label>
-        <input type="text" id="input-nome" placeholder="Digite seu nome" autocomplete="name" required>
-      </div>
-      <button type="submit" class="btn btn-primary btn-block" id="btn-entrar">
-        Entrar
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
-      </button>
-    </form>
-  </div>
   </div>
 
   <!-- ========== TELA DASHBOARD ========== -->
@@ -60,14 +59,6 @@
               stroke-linecap="round" stroke-linejoin="round">
               <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
               <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-            </svg>
-          </button>
-          <button class="btn-icon" id="btn-logout" title="Sair/Configurações">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="3" />
-              <path
-                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
             </svg>
           </button>
         </div>
@@ -189,7 +180,7 @@
 
   <!-- BOTTOM NAVIGATION BAR -->
   <nav class="bottom-nav">
-    <button class="nav-item active" id="nav-resumo">
+    <button class="nav-item active" id="nav-resumo" style="flex: 1;">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round">
         <rect x="3" y="3" width="7" height="7" />
@@ -199,16 +190,7 @@
       </svg>
       <span>Resumo</span>
     </button>
-    <button class="nav-item" id="nav-vendas">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-        <line x1="3" y1="6" x2="21" y2="6" />
-        <path d="M16 10a4 4 0 0 1-8 0" />
-      </svg>
-      <span>Vendas</span>
-    </button>
-    <button class="nav-fab" id="btn-novo-servico">
+    <button class="nav-fab" id="btn-novo-servico" style="flex: 1;">
       <div class="nav-fab-inner">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
           stroke-linecap="round" stroke-linejoin="round">
@@ -217,21 +199,8 @@
         </svg>
       </div>
     </button>
-    <button class="nav-item" id="nav-extrato">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 8v4l3 3" />
-      </svg>
-      <span>Extrato</span>
-    </button>
-    <button class="nav-item" id="nav-links">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-      </svg>
-      <span>Links</span>
+    <button class="nav-item" id="nav-vendas" style="flex: 1; opacity: 0; pointer-events: none;">
+      <!-- Hidden spacer for flex balance -->
     </button>
   </nav>
   </div>
