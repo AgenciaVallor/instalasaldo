@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -16,32 +17,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
   <!-- ========== TELA LOGIN ========== -->
   <div id="screen-login" class="screen active">
     <div class="login-container">
-      <div class="login-logo">
-        <div class="logo-icon">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-            <rect width="48" height="48" rx="12" fill="#1a2744"/>
-            <text x="24" y="30" text-anchor="middle" fill="white" font-size="18" font-weight="800" font-family="Inter, sans-serif">IS</text>
-          </svg>
-        </div>
-        <h1 class="login-title">InstalaSaldo</h1>
-        <p class="login-subtitle">Controle de sinal e restante das suas instalações</p>
+      <div class="logo-icon">
+        <img src="icons/logo.png" alt="InstalaSaldo Logo" width="160"
+          style="display: block; margin: 0 auto; border-radius: 12px;">
       </div>
-      <form id="login-form" class="login-form">
-        <div class="input-group">
-          <label for="input-nome">Seu nome</label>
-          <input type="text" id="input-nome" placeholder="Digite seu nome" autocomplete="name" required>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block" id="btn-entrar">
-          Entrar
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-      </form>
+      <h1 class="login-title" style="display: none;">InstalaSaldo</h1>
+      <p class="login-subtitle">Controle de sinal e restante das suas instalações</p>
     </div>
+    <form id="login-form" class="login-form">
+      <div class="input-group">
+        <label for="input-nome">Seu nome</label>
+        <input type="text" id="input-nome" placeholder="Digite seu nome" autocomplete="name" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" id="btn-entrar">
+        Entrar
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </button>
+    </form>
+  </div>
   </div>
 
   <!-- ========== TELA DASHBOARD ========== -->
@@ -49,57 +51,120 @@
     <header class="dashboard-header">
       <div class="header-content">
         <div class="header-text">
-          <h2 class="greeting" id="greeting-name">Olá, Usuário</h2>
-          <p class="date-display" id="date-display"></p>
+          <h2 class="greeting" id="greeting-time">Bom dia,</h2>
+          <p class="greeting-name" id="greeting-name">Usuário.</p>
         </div>
-        <button class="btn-icon" id="btn-logout" title="Sair">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        </button>
+        <div class="header-actions">
+          <button class="btn-icon" id="btn-notifications" title="Notificações">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+          </button>
+          <button class="btn-icon" id="btn-logout" title="Sair/Configurações">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
 
-    <main class="dashboard-body">
-      <!-- Cards de Indicadores -->
-      <div class="cards-grid">
-        <div class="card card-recebido">
-          <div class="card-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-          </div>
-          <p class="card-label">Total Recebido</p>
-          <p class="card-value" id="total-recebido">R$ 0,00</p>
+    <main class="dashboard-body" id="tab-resumo">
+      <!-- Main Balance Card -->
+      <div class="balance-card">
+        <div class="balance-header">
+          <span>Minha carteira</span>
+          <button class="btn-hide-balance">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </button>
         </div>
-        <div class="card card-pendente">
-          <div class="card-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <p class="card-label">Total a Receber</p>
-          <p class="card-value" id="total-pendente">R$ 0,00</p>
+        <div class="balance-content">
+          <h1 class="balance-amount" id="total-recebido">R$ 0,00</h1>
+          <p class="balance-pending">A antecipar: <span id="total-pendente">R$ 0,00</span>*</p>
         </div>
-        <div class="card card-servicos">
-          <div class="card-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          </div>
-          <p class="card-label">Serviços Pendentes</p>
-          <p class="card-value" id="servicos-pendentes">0</p>
+        <div class="balance-actions">
+          <button class="balance-action-btn">
+            <div class="action-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="20" height="12" rx="2" />
+                <circle cx="12" cy="12" r="2" />
+                <path d="M6 12h.01M18 12h.01" />
+              </svg>
+            </div>
+            <span>Sacar</span>
+          </button>
+          <button class="balance-action-btn">
+            <div class="action-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="20" height="12" rx="2" />
+                <path d="M12 12h.01M16 12h.01M8 12h.01" />
+              </svg>
+            </div>
+            <span>Antecipar</span>
+          </button>
         </div>
       </div>
 
-      <!-- Barra proporcional -->
-      <div class="progress-section">
-        <div class="progress-header">
-          <span class="progress-label">Visão Geral</span>
-        </div>
-        <div class="progress-bar-container">
-          <div class="progress-bar">
-            <div class="progress-fill-recebido" id="progress-recebido"></div>
-            <div class="progress-fill-pendente" id="progress-pendente"></div>
+      <!-- Secondary Card (Sales today) -->
+      <div class="sales-card">
+        <div class="sales-header">
+          <div class="sales-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23" />
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
           </div>
+          <span>Vendas hoje</span>
         </div>
-        <div class="progress-legend">
-          <span class="legend-item legend-recebido"><span class="legend-dot"></span> Recebido</span>
-          <span class="legend-item legend-pendente"><span class="legend-dot"></span> Pendente</span>
+        <div class="sales-content">
+          <h2 class="sales-amount">R$ 0,00</h2>
+          <span class="sales-count" id="servicos-pendentes">Vendas: 0</span>
         </div>
       </div>
+
+      <!-- Small Cards Row -->
+      <div class="small-cards-row">
+        <div class="small-card">
+          <div class="small-card-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+            <span>Vendas totais</span>
+          </div>
+          <h3 class="small-card-amount">R$ 0,00</h3>
+        </div>
+        <div class="small-card">
+          <div class="small-card-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+            <span>Vendas 30 dias</span>
+          </div>
+          <h3 class="small-card-amount">R$ 0,00</h3>
+        </div>
+      </div>
+    </main>
+
+    <!-- ABA SERVIÇOS (Oculta por padrão) -->
+    <main class="dashboard-body" id="tab-servicos" style="display: none;">
+      <!-- Lista de Serviços -->
 
       <!-- Lista de Serviços -->
       <div class="services-section">
@@ -108,24 +173,77 @@
           <!-- rendered by JS -->
         </div>
         <div id="empty-state" class="empty-state" style="display:none;">
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#c0c6d0" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#c0c6d0" stroke-width="1.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+          </svg>
           <p>Nenhum serviço cadastrado</p>
           <span>Toque no botão abaixo para adicionar</span>
         </div>
       </div>
     </main>
 
-    <!-- FAB -->
-    <button class="fab" id="btn-novo-servico" title="Novo Serviço">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+  </div>
+  </main>
+
+  <!-- BOTTOM NAVIGATION BAR -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" id="nav-resumo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="7" />
+        <rect x="14" y="3" width="7" height="7" />
+        <rect x="14" y="14" width="7" height="7" />
+        <rect x="3" y="14" width="7" height="7" />
+      </svg>
+      <span>Resumo</span>
     </button>
+    <button class="nav-item" id="nav-vendas">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <path d="M16 10a4 4 0 0 1-8 0" />
+      </svg>
+      <span>Vendas</span>
+    </button>
+    <button class="nav-fab" id="btn-novo-servico">
+      <div class="nav-fab-inner">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+      </div>
+    </button>
+    <button class="nav-item" id="nav-extrato">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 8v4l3 3" />
+      </svg>
+      <span>Extrato</span>
+    </button>
+    <button class="nav-item" id="nav-links">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+      </svg>
+      <span>Links</span>
+    </button>
+  </nav>
   </div>
 
   <!-- ========== TELA NOVO SERVIÇO ========== -->
   <div id="screen-new-service" class="screen">
     <header class="form-header">
       <button class="btn-back" id="btn-voltar">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
       </button>
       <h2 class="form-title">Novo Serviço</h2>
       <div style="width:40px"></div>
@@ -152,7 +270,10 @@
         <input type="date" id="campo-data">
       </div>
       <button type="submit" class="btn btn-primary btn-block btn-save">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
         Salvar Serviço
       </button>
     </form>
@@ -162,7 +283,10 @@
   <div id="screen-edit-service" class="screen">
     <header class="form-header">
       <button class="btn-back" id="btn-voltar-edit">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
       </button>
       <h2 class="form-title">Editar Serviço</h2>
       <div style="width:40px"></div>
@@ -190,11 +314,18 @@
         <input type="date" id="edit-data">
       </div>
       <button type="submit" class="btn btn-primary btn-block btn-save">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
         Salvar Alterações
       </button>
       <button type="button" class="btn btn-danger btn-block" id="btn-delete-service">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="3 6 5 6 21 6" />
+          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+        </svg>
         Excluir Serviço
       </button>
     </form>
@@ -205,4 +336,5 @@
 
   <script src="app.js"></script>
 </body>
+
 </html>

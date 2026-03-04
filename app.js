@@ -19,17 +19,21 @@
         inputNome: document.getElementById('input-nome'),
 
         // Dashboard
+        greetingTime: document.getElementById('greeting-time'),
         greetingName: document.getElementById('greeting-name'),
-        dateDisplay: document.getElementById('date-display'),
         totalRecebido: document.getElementById('total-recebido'),
         totalPendente: document.getElementById('total-pendente'),
         servicosPendentes: document.getElementById('servicos-pendentes'),
-        progressRecebido: document.getElementById('progress-recebido'),
-        progressPendente: document.getElementById('progress-pendente'),
         servicesList: document.getElementById('services-list'),
         emptyState: document.getElementById('empty-state'),
         btnNovoServico: document.getElementById('btn-novo-servico'),
         btnLogout: document.getElementById('btn-logout'),
+
+        // Tabs
+        tabResumo: document.getElementById('tab-resumo'),
+        tabServicos: document.getElementById('tab-servicos'),
+        navResumo: document.getElementById('nav-resumo'),
+        navVendas: document.getElementById('nav-vendas'),
 
         // New Service
         serviceForm: document.getElementById('service-form'),
@@ -98,11 +102,11 @@
         return `${parts[2]}/${parts[1]}/${parts[0]}`;
     }
 
-    function getCurrentDateStr() {
-        const now = new Date();
-        const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-        let str = now.toLocaleDateString('pt-BR', options);
-        return str.charAt(0).toUpperCase() + str.slice(1);
+    function getGreetingTime() {
+        const hour = new Date().getHours();
+        if (hour < 12) return 'Bom dia,';
+        if (hour < 18) return 'Boa tarde,';
+        return 'Boa noite,';
     }
 
     function showToast(message) {
@@ -114,12 +118,31 @@
     // ---- Screen Navigation ----
     function showScreen(screenName) {
         Object.values(screens).forEach((s) => {
-            s.classList.remove('active');
+            if (s) s.classList.remove('active');
         });
-        screens[screenName].classList.add('active');
+        if (screens[screenName]) screens[screenName].classList.add('active');
 
         // Scroll to top
         window.scrollTo(0, 0);
+    }
+
+    // ---- Tab Navigation ----
+    function initTabs() {
+        if (!els.navResumo || !els.navVendas) return;
+
+        els.navResumo.addEventListener('click', () => {
+            els.navResumo.classList.add('active');
+            els.navVendas.classList.remove('active');
+            els.tabResumo.style.display = 'block';
+            els.tabServicos.style.display = 'none';
+        });
+
+        els.navVendas.addEventListener('click', () => {
+            els.navVendas.classList.add('active');
+            els.navResumo.classList.remove('active');
+            els.tabResumo.style.display = 'none';
+            els.tabServicos.style.display = 'block';
+        });
     }
 
     // ---- Login ----
@@ -149,8 +172,8 @@
     function showDashboard() {
         showScreen('dashboard');
         const user = getUser();
-        els.greetingName.textContent = `Olá, ${user}`;
-        els.dateDisplay.textContent = getCurrentDateStr();
+        els.greetingTime.textContent = getGreetingTime();
+        els.greetingName.textContent = user ? `${user}.` : 'Usuário.';
         renderServices();
     }
 
@@ -170,21 +193,9 @@
         });
 
         // Update indicator cards
-        els.totalRecebido.textContent = formatCurrency(totalRecebido);
-        els.totalPendente.textContent = formatCurrency(totalPendente);
-        els.servicosPendentes.textContent = countPendentes;
-
-        // Update progress bar
-        const totalGeral = totalRecebido + totalPendente;
-        if (totalGeral > 0) {
-            const pctRecebido = (totalRecebido / totalGeral) * 100;
-            const pctPendente = (totalPendente / totalGeral) * 100;
-            els.progressRecebido.style.width = pctRecebido + '%';
-            els.progressPendente.style.width = pctPendente + '%';
-        } else {
-            els.progressRecebido.style.width = '0%';
-            els.progressPendente.style.width = '0%';
-        }
+        if (els.totalRecebido) els.totalRecebido.textContent = formatCurrency(totalRecebido);
+        if (els.totalPendente) els.totalPendente.textContent = formatCurrency(totalPendente);
+        if (els.servicosPendentes) els.servicosPendentes.textContent = `Vendas: ${countPendentes}`;
 
         // Render service list
         if (services.length === 0) {
@@ -407,4 +418,5 @@
 
     // ---- Init ----
     initLogin();
+    initTabs();
 })();
