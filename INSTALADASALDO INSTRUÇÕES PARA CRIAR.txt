@@ -1,0 +1,230 @@
+Crie um App Web no formato PWA (Progressive Web App), mobile first, chamado InstalaSaldo.
+
+Objetivo do app:
+Ser uma ferramenta de bolso para técnicos de instalação (ar-condicionado, energia solar, portão eletrônico, cerca elétrica, câmeras) controlarem sinal e restante de serviços instalados.
+
+O app deve permitir que o usuário veja rapidamente:
+
+Quanto já recebeu
+
+Quanto ainda falta receber
+
+Quantos serviços estão pendentes
+
+REQUISITOS TÉCNICOS OBRIGATÓRIOS
+
+Deve ser um PWA instalável
+
+Deve funcionar offline após o primeiro carregamento
+
+Não usar backend
+
+Não usar banco de dados externo
+
+Usar apenas HTML, CSS e JavaScript puro
+
+Persistência via localStorage
+
+Login fake (qualquer nome permite entrar)
+
+Layout 100% mobile first
+
+Interface otimizada para celular
+
+Visual profissional, simples e moderno
+
+ESTRUTURA DO APP
+1️⃣ Tela de Login (Fake)
+
+Título: InstalaSaldo
+Subtítulo: Controle de sinal e restante das suas instalações
+
+Campo:
+Digite seu nome
+
+Botão:
+Entrar
+
+Regras:
+
+Salvar nome no localStorage
+
+Não exigir senha
+
+Não validar dados
+
+Redirecionar para tela inicial
+
+2️⃣ Tela Inicial (Painel de Clareza Financeira)
+
+Topo:
+"Olá, [Nome do usuário]"
+Data atual pequena abaixo
+
+Indicadores (cards grandes)
+
+Total Recebido (verde)
+→ Soma de todos os valores recebidos
+
+Total a Receber (laranja)
+→ Soma de todos os saldos pendentes
+
+Serviços Pendentes
+→ Quantidade de serviços com saldo > 0
+
+Mini gráfico proporcional simples
+
+Uma barra horizontal dividida proporcionalmente:
+
+Parte verde → valor recebido
+Parte laranja → valor pendente
+
+Sem filtros.
+Sem período.
+Sem histórico mensal.
+Apenas visão geral atual.
+
+Lista de Serviços
+
+Para cada serviço mostrar:
+
+Nome do cliente
+Tipo de instalação
+Valor total
+Valor recebido
+Saldo restante (calculado automaticamente)
+
+Status:
+"Pendente" se saldo > 0
+"Quitado" se saldo = 0
+
+Botões por item:
+
+"Marcar como Quitado"
+→ Define valorRecebido = valorTotal
+→ Atualiza status
+→ Atualiza indicadores automaticamente
+
+Botão fixo inferior:
+
+➕ Novo Serviço
+
+3️⃣ Tela Novo Serviço
+
+Campos:
+
+Nome do cliente (texto obrigatório)
+Tipo de instalação (texto livre)
+Valor total (numérico obrigatório)
+Valor já recebido (numérico obrigatório)
+Data combinada para pagamento final (date)
+
+Ao salvar:
+
+Calcular saldo = valorTotal - valorRecebido
+
+Definir status automaticamente
+
+Criar objeto do serviço
+
+Salvar no localStorage
+
+Atualizar dashboard
+
+Voltar para tela inicial
+
+ESTRUTURA DE DADOS NO LOCALSTORAGE
+
+Chave:
+"servicosInstalacao"
+
+Formato:
+
+Array de objetos contendo:
+
+id (único)
+cliente
+tipoInstalacao
+valorTotal
+valorRecebido
+dataPagamentoFinal
+
+O saldo deve ser calculado dinamicamente:
+saldo = valorTotal - valorRecebido
+
+Status calculado:
+Se saldo > 0 → pendente
+Se saldo = 0 → quitado
+
+REGRAS IMPORTANTES
+
+Não incluir:
+
+Parcelas múltiplas
+
+Gráfico mensal
+
+Histórico por período
+
+Exportação
+
+PDF
+
+Categorias
+
+Filtros complexos
+
+Sistema de usuários múltiplos
+
+Manter o app simples e focado apenas no controle de sinal e restante.
+
+DESIGN E VISUAL
+
+Mobile first
+Layout centralizado
+Cards com sombra leve
+Botões grandes e arredondados
+Fonte moderna (Inter ou similar)
+
+Paleta:
+
+Azul escuro para elementos principais
+Verde para valores recebidos
+Laranja para valores pendentes
+Cinza claro para fundo
+
+Interface deve parecer aplicativo real instalado no celular.
+
+CONFIGURAÇÃO PWA
+
+Criar:
+
+manifest.json com:
+
+name: InstalaSaldo
+short_name: InstalaSaldo
+display: standalone
+theme_color compatível com azul escuro
+background_color claro
+
+Ícones:
+192x192
+512x512
+
+Criar service-worker.js para:
+
+Cachear arquivos principais
+Permitir funcionamento offline após primeiro acesso
+
+EXPERIÊNCIA FINAL ESPERADA
+
+Usuário:
+
+Entra com nome
+Cadastra serviços
+Visualiza imediatamente quanto falta receber
+Marca serviços como quitado
+Instala na tela inicial
+Usa mesmo sem internet
+
+O app deve parecer um aplicativo real, não apenas um site.

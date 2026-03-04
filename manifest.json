@@ -1,0 +1,24 @@
+{
+  "name": "InstalaSaldo",
+  "short_name": "InstalaSaldo",
+  "description": "Controle de sinal e restante das suas instalações",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#1a2744",
+  "background_color": "#f0f2f5",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
